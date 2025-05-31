@@ -9,7 +9,8 @@ const RecipeListCuisines = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch("http://localhost:5000/recipes");
+     const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/recipes`);
+
         const data = await response.json();
 
         // Filter recipes by category 'cuisines'

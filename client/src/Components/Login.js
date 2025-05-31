@@ -26,7 +26,7 @@ function Login() {
     try {
       // Send login request to the server
       const response = await axios.post(
-        "http://localhost:5000/TastyThreads/login",
+        `${process.env.REACT_APP_BACKEND_URL}/TastyThreads/login`,
         {
           email,
           password,

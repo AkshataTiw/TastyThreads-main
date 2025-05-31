@@ -9,7 +9,8 @@ const Recipedetailing = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/recipes/${id}`) // API call to fetch recipe details by ID
+      axios.get(`${process.env.REACT_APP_BACKEND_URL}/recipes/${id}`)
+
       .then((response) => {
         setRecipe(response.data); // Set the recipe data to state
       })

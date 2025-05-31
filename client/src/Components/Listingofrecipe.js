@@ -9,7 +9,8 @@ const RecipeListPage = () => {
   // Fetch all recipes when the component is mounted
   useEffect(() => {
     axios
-      .get("http://localhost:5000/recipes") // Make sure this API is working
+      .get(`${process.env.REACT_APP_BACKEND_URL}/recipes`)
+ // Make sure this API is working
       .then((response) => {
         setRecipes(response.data); // Store the fetched recipes
       })

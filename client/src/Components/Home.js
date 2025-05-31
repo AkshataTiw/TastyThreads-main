@@ -48,7 +48,8 @@ function Home() {
   // Function to handle submission of views
   const handleSubmitView = async () => {
     try {
-      const response = await fetch("http://localhost:5000/TastyThreads/views", {  // Explicitly mention backend URL
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/TastyThreads/views`, 
+ { 
         method: "POST",
         headers: {
           "Content-Type": "application/json",

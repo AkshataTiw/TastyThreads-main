@@ -38,7 +38,8 @@ const RecipeListPage = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/contact", contactData);
+     const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/contact`, contactData);
+
 
       if (response.status === 201) {
         alert("Message sent successfully!");

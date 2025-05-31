@@ -10,7 +10,8 @@ const RecipeListVegan = () => {
         const fetchRecipes = async () => {
             try {
                 // Ensure this is the correct API path
-                const response = await fetch("http://localhost:5000/recipes");
+               const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/recipes`);
+
                 const data = await response.json();
 
                 // Filter only Vegan recipes

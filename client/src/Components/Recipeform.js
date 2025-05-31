@@ -33,11 +33,13 @@ const RecipeForm = () => {
     console.log("🟢 Sending Recipe Data:", formData); // Debugging Log
   
     try {
-      const response = await fetch("http://localhost:5000/recipes/add", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/recipes/add`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(formData),
+});
+
+    
   
       const responseData = await response.json();
       console.log("🟢 API Response:", responseData); // Debugging Log

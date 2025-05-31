@@ -28,7 +28,8 @@ const Signup = () => {
 
     try {
       // Send a POST request to your backend
-      const response = await axios.post('http://localhost:5000/TastyThreads/SignUp', formData);
+    const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/TastyThreads/SignUp`, formData);
+
 
       setSuccess(response.data.msg); // Display success message
       setError(null); // Clear any previous errors

@@ -6,7 +6,8 @@ const BreakfastList = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/recipes?category=Breakfast")
+   axios.get(`${process.env.REACT_APP_BACKEND_URL}/recipes?category=Breakfast`)
+
       .then((response) => setRecipes(response.data))
       .catch((error) => console.error("Error fetching recipes:", error));
   }, []);
