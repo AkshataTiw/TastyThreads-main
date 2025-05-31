@@ -10,7 +10,11 @@ const app = express();
 const PORT = 5000;
 
 // ✅ Middleware - Order Matters!
-app.use(cors()); 
+app.use(cors({
+  origin: "https://tastythreads-main.vercel.app", // use your real Vercel frontend URL
+  credentials: true
+}));
+
 app.use(express.json()); // ✅ Ensure this is BEFORE the router
 app.use(express.urlencoded({ extended: true })); 
 
