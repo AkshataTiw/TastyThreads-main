@@ -7,17 +7,19 @@ const Recipedetailing = () => {
   const { id } = useParams(); // Get the recipe ID from the URL
   const [recipe, setRecipe] = useState(null);
 
-  useEffect(() => {
-    axios
-      axios.get(`${process.env.REACT_APP_BACKEND_URL}/recipes/${id}`)
+ useEffect(() => {
+  const fetchRecipe = async () => {
+    try {
+     console.log("Calling:", `${process.env.REACT_APP_BACKEND_URL}/recipes/${id}`);
+      console.log("Fetched recipe:", response.data);
+      setRecipe(response.data);
+    } catch (error) {
+      console.error("Error fetching recipe details:", error);
+    }
+  };
 
-      .then((response) => {
-        setRecipe(response.data); // Set the recipe data to state
-      })
-      .catch((error) => {
-        console.error("Error fetching recipe details:", error);
-      });
-  }, [id]);
+  fetchRecipe();
+}, [id]);
 
   // Loading state while fetching recipe data
   if (!recipe) return <div>Loading...</div>;
